@@ -1,0 +1,9 @@
+<div class="row">
+<button mat-button [matMenuTriggerFor]="menu" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">Menu</button>   
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item routerLink="login" (click)="navigation()">Login</button>
+  <button mat-menu-item routerLink="registrazione">Registrazione</button>
+  <button mat-menu-item routerLink="area-riservata">Area Riservata</button>
+  <button mat-menu-item routerLink="areabottoni" >Area bottoni</button>
+</mat-menu>
+</div>

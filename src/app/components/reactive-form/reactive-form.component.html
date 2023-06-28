@@ -1,0 +1,47 @@
+<div class="row" [formGroup]="form">
+        <mat-form-field class="col-md-3">
+          <mat-label>name</mat-label>
+          <input type="text" matInput formControlName="name">
+          <mat-error *ngIf="form.get('name')?.errors && form.get('name')?.touched">Nome non valido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-3" *ngIf="form.get('name')?.valid">
+            <mat-label>surname</mat-label>
+            <input type="text" matInput formControlName="surname">
+            <mat-error *ngIf="form.get('surname')?.errors && form.get('surname')?.touched">cognome non valido</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-3">
+            <mat-label>age</mat-label>
+            <input type="text" matInput formControlName="age">
+            <mat-error *ngIf="form.get('age')?.errors && form.get('age')?.touched">età non valida</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-3">
+            <mat-label>sex</mat-label>
+            <mat-select formControlName="sex">
+                <mat-option value="M">M</mat-option>
+                <mat-option value="F">F</mat-option>
+                <mat-option value="A">A</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="col-md-3" formGroupName="contacts">
+            <mat-label>email</mat-label>
+            <input type="text" matInput formControlName="email">
+            <mat-error *ngIf="form.get('contacts.email')?.errors && form.get('contacts.email')?.touched">email non valida</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-3" formGroupName="contacts">
+            <mat-label>phone</mat-label>
+            <input type="text" matInput formControlName="phone">
+            <mat-error *ngIf="form.get('contacts.phone')?.errors && form.get('contacts.phone')?.touched">numero non valido</mat-error>
+        </mat-form-field>
+        <div class="col-md-12">
+            <button mat-raised-button color="warn" (click)="resetForm()" style="margin-right: 5px;">Reset</button>
+            <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="toggleJson()">submit</button>
+        </div>
+</div>      
+<div class="row" *ngIf="mostraJson">
+    {{form.value|json}}
+    
+    <p [ngClass]="{ 'bold-text': form.value.age >= 18 }">Name: {{ form.value.name }}</p>
+    <p [ngClass]="{ 'bold-text': form.value.age >= 18 }">Surname: {{ form.value.surname }}</p>
+    <p [ngStyle]="{ color: form.value.age >= 18 ? 'red' : 'black' }">Age:{{form.value.age}}</p>
+  </div>  
+

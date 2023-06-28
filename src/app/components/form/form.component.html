@@ -1,0 +1,39 @@
+<div class="row">
+    <form>
+        <mat-form-field class="xs=12 sm=6 md=3 lg=3">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" name="username" required [(ngModel)]="username">
+        </mat-form-field>
+    
+        <mat-form-field class="xs=12 sm=6 md=3 lg=3">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" name="password" required [(ngModel)]="password">
+        </mat-form-field>
+    
+        <mat-form-field class="xs=12 sm=6 md=3 lg=3">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Email" name="email" required [(ngModel)]="email">
+        </mat-form-field>
+    
+        
+        <mat-form-field class="xs=12 sm=6 md=3 lg=3">
+          <mat-label>sesso</mat-label>
+          <select matNativeControl required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+          </select>
+        </mat-form-field>
+    
+        <button mat-raised-button color="primary" type="submit" class="xs=12 sm=6 md=3 lg=3"
+        (click)="sendDati()">Submit</button>
+        
+        <button (click)="this.username = 'Pippo'">Default User</button>
+        <p>nuovoUsername: {{ username }}</p>
+      </form>
+    </div>   
+    
+
+    
+    
+      

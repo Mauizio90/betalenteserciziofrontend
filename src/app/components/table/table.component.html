@@ -1,0 +1,61 @@
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef> username </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="password">
+        <th mat-header-cell *matHeaderCellDef> password </th>
+        <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="sex">
+        <th mat-header-cell *matHeaderCellDef> sex </th>
+        <td mat-cell *matCellDef="let element"> {{element.sex}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isActive">
+        <th mat-header-cell *matHeaderCellDef> isActive </th>
+        <td mat-cell *matCellDef="let element"> {{element.isActive}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    </table>
+    
+
+    <div class="row"  *ngFor="let utente of utenti">
+      <div class="col-md-2">
+          <p mat-cell>{{ utente.username }}</p>
+      </div>
+      <div class="col-md-2">
+          <p mat-cell>{{ utente.password }}</p>
+      </div> 
+      <div class="col-md-2">
+          <p mat-cell>{{ utente.email }}</p>
+      </div>
+      <div class="col-md-2">     
+          <p mat-cell>{{ utente.age }}</p>
+      </div>
+      <div class="col-md-2">    
+          <p mat-cell>{{ utente.sex }}</p>
+      </div>
+      <div class="col-md-2">   
+          <p mat-cell>{{ utente.isActive }}</p>
+      </div>  
+    </div>
+
+
+    
