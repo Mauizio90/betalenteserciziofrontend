@@ -1,23 +1,26 @@
-import { Component } from '@angular/core';
-import { CanActivateFn } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 
-@Component({
-  template: `
-    <h2>Error</h2>
-    <p>You must be logged in to access the home page.</p>
-  `,
+@Injectable({
+  providedIn: 'root'
 })
 
+class PermissionsService{
+  constructor(private router: Router, public dialog: MatDialog){
 
-export class ErrorPopupComponent {}
-
-
-export const provaGuard: CanActivateFn = (route, state) => {
-
-  const userLogged = route.data['userLogged'];
-  if(userLogged == true){
-    return userLogged
-  }else{
-    return userLogged;
   }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    if(route.data['userLogged']) {
+      return true;
+    } else {
+      //this.dialog.open(ErrorPopupComponent);
+      this.router.navigate(['/login']);
+      return false;
+    }
+}
+}
+
+export const provaGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean => {
+  return inject(PermissionsService).canActivate(route, state);
 };

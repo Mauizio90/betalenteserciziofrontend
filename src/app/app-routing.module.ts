@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'area-riservata', loadChildren: () => import('./components/area-riservata/area-riservata.module').then(m => m.AreaRiservataModule)},
   {path: 'home', loadChildren: () => import('./components/menu/menu.module').then(m => m.MenuModule),
 canActivate: [provaGuard],
-data:{userLogged : true} },
+data:{userLogged : false} },
   {path: 'areabottoni', loadChildren: () => import('./components/bottoniesercizio/bottoniesercizio.module').then(m => m.BottoniesercizioModule)}
 ];
 

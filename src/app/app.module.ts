@@ -19,6 +19,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { LoginComponent } from './components/login/login.component';
 import { RegistrazioneComponent } from './components/registrazione/registrazione.component';
 import { AreaRiservataComponent } from './components/area-riservata/area-riservata.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AreaRiservataComponent } from './components/area-riservata/area-riserva
     LoginComponent,
     RegistrazioneComponent,
     AreaRiservataComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,7 @@ import { AreaRiservataComponent } from './components/area-riservata/area-riserva
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatDialogModule
 
   ],
   providers: [],
